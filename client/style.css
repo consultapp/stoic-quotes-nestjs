@@ -12,16 +12,8 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.stoic * {
-  cursor: pointer;
-}
-
 .stoic {
-  transition: transform 0.3s ease-in-out;
-}
-
-.lucide-github:hover {
-  transform: scale(110%);
+  cursor: pointer;
 }
 
 .stoic:not(.stoic_showText):not(.stoic_hideText) .stoic__backquote:before {
@@ -51,10 +43,10 @@ body {
   stroke-width: 2.3;
 }
 
-.amorfati{
+.amorfati {
   position: fixed;
-  left:1rem;
-  top:1rem;
+  left: 1rem;
+  top: 1rem;
   font-size: 1.1rem;
   text-transform: lowercase;
 }
