@@ -2,4 +2,4 @@
 
 https://stoicquotes.ru
 
-Random Quote: https://stoicquotes.ru/quote/random
+Random Quote: https://stoicquotes.ru/random
