@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stoic's Quotes</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="dist/css/stoic.css" />
-    <script src="./dist/js/Stoic.class.js"></script>
+    <script src="./dist/js/Stoic.class.js" defer></script>
+    <meta name="description" content="Death smiles at us all; all we can do is smile back. Marcus Aurelius.">
   </head>
   <body>
     <script>
       window.addEventListener('load', () => {
         const stoic = new Stoic();
-
         const root = document.querySelector('.stoic');
-
         root.addEventListener('click', () => {
           stoic.nextQuote();
         });
@@ -40,5 +40,6 @@
         <path d="M9 18c-4.51 2-5-2-7-2" />
       </svg>
     </a>
+    <div class="amorfati">amor fati</div>
   </body>
 </html>

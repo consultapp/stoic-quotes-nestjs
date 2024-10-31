@@ -8,6 +8,8 @@
 }
 body {
   background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .stoic * {
@@ -39,4 +41,12 @@ body {
 .lucide-github:hover {
   transform: scale(110%);
   stroke-width: 2.3;
+}
+
+.amorfati{
+  position: fixed;
+  left:1rem;
+  top:1rem;
+  font-size: 1.1rem;
+  text-transform: lowercase;
 }
