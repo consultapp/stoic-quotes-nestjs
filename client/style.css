@@ -10,6 +10,10 @@ body {
   background-color: var(--clr-bg);
 }
 
+.stoic * {
+  cursor: pointer;
+}
+
 .stoic:not(.stoic_showText):not(.stoic_hideText) .stoic__backquote:before {
   content: '';
 }
