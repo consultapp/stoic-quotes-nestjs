@@ -1,0 +1,7 @@
+services:
+  server:
+    image: test7778/stoic-quotes-nestjs
+    ports:
+      - '3100:3000'
+    environment:
+      - NODE_ENV=production
