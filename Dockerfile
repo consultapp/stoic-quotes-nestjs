@@ -15,4 +15,4 @@ ENV NODE_ENV=production
 
 EXPOSE $PORT
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "start:prod"]
