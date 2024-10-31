@@ -17,10 +17,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "dbuild": "docker build -t test7778/stoic-quotes-nestjs .",
+    "dpush": "docker push test7778/stoic-quotes-nestjs",
+    "drun": "docker run -d --rm  --name stoic-quotes-nestjs -p 3100:3000 test7778/stoic-quotes-nestjs",
+    "dstop": "docker stop stoic-quotes-nestjs",
+    "dlog": "docker logs -f stoic-quotes-nestjs"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "reflect-metadata": "^0.2.0",
