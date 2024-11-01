@@ -14,9 +14,16 @@ const initialParams = {
     positionX: "center",
     positionY: "center",
     baseClassName: "stoic",
+    delay: "30",
     serverApi: "https://stoicquotes.ru/random",
 };
 const MINIMUM_QUOTES_POOL_LENGTH = 3;
+function isKey(x, k) {
+    return k in x;
+}
+function isValue(x, k) {
+    return k in x;
+}
 class Stoic {
     params;
     static instance;
@@ -25,6 +32,7 @@ class Stoic {
     waitTimeout = 0;
     quoteElement = null;
     authorElement = null;
+    interval = 0;
     constructor(params = initialParams) {
         this.params = params;
         if (Stoic.instance) {
@@ -43,6 +51,31 @@ class Stoic {
         else
             this.#setInnerTemplate();
         this.#initListeners();
+        this.play();
+    }
+    nextQuote() {
+        this.#hideContent();
+        setTimeout(() => {
+            this.#fillQuotesPool();
+            this.#waitForQuote();
+        }, 400);
+    }
+    hide() {
+        this.params.root?.classList.add(`${this.params.baseClassName}_hide`);
+    }
+    show() {
+        this.params.root?.classList.remove(`${this.params.baseClassName}_hide`);
+    }
+    play() {
+        this.stop();
+        if (this.params.delay)
+            this.interval = setInterval(() => {
+                this.nextQuote();
+            }, parseInt(this.params.delay) * 1000);
+    }
+    stop() {
+        clearInterval(this.interval);
+        this.interval = 0;
     }
     #setInnerTemplate() {
         if (this.params.root) {
@@ -81,7 +114,8 @@ class Stoic {
     }
     #updateParams(params = initialParams) {
         for (const [k, v] of Object.entries(params)) {
-            this.params[k] = v;
+            if (isKey(this.params, k))
+                this.params[k] = v;
         }
         this.#setPosition();
     }
@@ -112,13 +146,6 @@ class Stoic {
                     break;
             }
         }
-    }
-    nextQuote() {
-        this.#hideContent();
-        setTimeout(() => {
-            this.#fillQuotesPool();
-            this.#waitForQuote();
-        }, 400);
     }
     #waitForQuote() {
         clearTimeout(this.waitTimeout);
@@ -151,12 +178,6 @@ class Stoic {
         }
     }
     #showError() { }
-    hide() {
-        this.params.root?.classList.add(`${this.params.baseClassName}_hide`);
-    }
-    show() {
-        this.params.root?.classList.remove(`${this.params.baseClassName}_hide`);
-    }
     #hideContent() {
         this.params.root?.classList.remove(`${this.params.baseClassName}_showText`);
         this.params.root?.classList.add(`${this.params.baseClassName}_hideText`);
