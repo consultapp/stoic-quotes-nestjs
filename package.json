@@ -2,7 +2,13 @@
   "name": "stoic-quotes-nestjs",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Dmitry Egorov",
+  "email": "info@consultapp.ru",
+  "url": "https://consultapp.ru/",
+  "homepage": "https://stoicquotes.ru/",
+  "bugs": {
+    "email": "info@consultapp.ru"
+  },
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
