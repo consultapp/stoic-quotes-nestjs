@@ -1,14 +1,32 @@
 :root {
   box-sizing: border-box;
-  --clr-bg: black;
-  --clr-text: white;
 }
 * {
   margin: 0;
 }
+
+* {
+  --clr-primary: rgb(0, 0, 0);
+  --clr-secondary: rgba(255, 255, 255, 0.9);
+}
+
+@media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+  * {
+    --clr-primary: rgb(0, 0, 0);
+    --clr-secondary: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  * {
+    --clr-primary: rgba(255, 255, 255, 0.75);
+    --clr-secondary: rgb(0, 0, 0);
+  }
+}
+
 body {
-  background-color: var(--clr-bg);
-  color: var(--clr-text);
+  background-color: var(--clr-primary);
+  color: var(--clr-secondary);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -32,7 +50,7 @@ body {
   position: fixed;
   right: 1rem;
   top: 1rem;
-  stroke: var(--clr-text);
+  stroke: var(--clr-secondary);
   cursor: pointer;
 
   transition: transform 0.3s ease-in-out;
