@@ -1,11 +1,12 @@
 :root {
   box-sizing: border-box;
 }
+
 * {
   margin: 0;
 }
 
-* {
+body {
   --clr-primary: rgb(0, 0, 0);
   --clr-secondary: rgba(255, 255, 255, 0.9);
 }
@@ -43,20 +44,32 @@ body {
   margin-right: 0.4rem;
   font-size: 1.5rem;
 }
-.stoic svg {
+
+.stoic__controlls {
   display: none;
 }
-.lucide-github {
+
+.navBar {
   position: fixed;
   right: 1rem;
   top: 1rem;
+
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+}
+
+.navBar svg {
   stroke: var(--clr-secondary);
   cursor: pointer;
 
   transition: transform 0.3s ease-in-out;
 }
 
-.lucide-github:hover {
+.navBar svg:hover {
   transform: scale(110%);
   stroke-width: 2.3;
 }
