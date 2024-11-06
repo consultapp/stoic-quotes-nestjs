@@ -46,7 +46,7 @@ body {
 }
 
 .stoic__controlls {
-  display: none;
+  display: none !important;
 }
 
 .navBar {
