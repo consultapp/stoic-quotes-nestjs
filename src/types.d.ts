@@ -12,3 +12,8 @@ interface QuoteError {
 }
 
 type QuoteResponse = Quote | QuoteError;
+
+interface EnvironmentVariables {
+  TELEGRAM_BOT_TOKEN: string;
+  TELEGRAM_CHANNEL: string;
+}
