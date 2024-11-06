@@ -4,11 +4,14 @@ RUN npm set strict-ssl false
 WORKDIR /src
 
 COPY package.json .
-COPY package-lock.json .
+# COPY package-lock.json .
 
+RUN npm config set legacy-peer-deps true
 RUN npm install
 
 COPY . .
+
+RUN npm run build
 
 ENV PORT=3000
 ENV NODE_ENV=production
