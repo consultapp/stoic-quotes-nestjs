@@ -8,6 +8,7 @@ COPY package-lock.json .
 
 COPY quotes.json .
 COPY ./dist ./dist
+COPY ./client ./client
 
 # COPY ./node_modules ./node_modules
 RUN npm config set legacy-peer-deps true

@@ -24,7 +24,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "dbuild": "docker build -t test7778/stoic-quotes-nestjs .",
+    "dbuild": "npm run build && docker build -t test7778/stoic-quotes-nestjs .",
     "dpush": "docker push test7778/stoic-quotes-nestjs",
     "drun": "docker run -d --rm  --name stoic-quotes-nestjs -p 3100:3000 test7778/stoic-quotes-nestjs",
     "dstop": "docker stop stoic-quotes-nestjs",
