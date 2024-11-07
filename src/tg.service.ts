@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Cron, CronExpression } from '@nestjs/schedule';
+import { Cron } from '@nestjs/schedule';
 import { InjectBot, Start, Update } from 'nestjs-telegraf';
 import { Context, Telegraf } from 'telegraf';
 import { QuoteService } from './quote.service';
@@ -24,10 +24,6 @@ export class TgService {
 
     console.log('-> Tg channel:', this.channel);
     console.log('-> Cron cfg:', cronString);
-    console.log(
-      'CronExpression.EVERY_30_SECONDS',
-      CronExpression.EVERY_30_SECONDS,
-    );
   }
   getData(): { message: string } {
     return { message: 'Welcome to server!' };
@@ -37,7 +33,6 @@ export class TgService {
   // @Cron(CronExpression.EVERY_30_SECONDS)
   sendRandomQuote() {
     const quote = this.quoteService.getRandomQuote();
-    console.log('quote', quote);
     if (isQuote(quote)) {
       return this.bot.telegram.sendMessage(
         this.channel,
