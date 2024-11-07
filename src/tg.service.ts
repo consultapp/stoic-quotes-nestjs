@@ -4,7 +4,6 @@ import { Hears, InjectBot, Start, Update } from 'nestjs-telegraf';
 import { Context, Telegraf } from 'telegraf';
 import { QuoteService } from './quote.service';
 import { isQuote } from './lib';
-import { ConfigService } from '@nestjs/config';
 
 @Update()
 @Injectable()
@@ -12,7 +11,6 @@ export class TgService {
   private channel: string = '';
 
   constructor(
-    private configService: ConfigService<EnvironmentVariables>,
     @InjectBot() private bot: Telegraf,
     @Inject() private quoteService: QuoteService,
   ) {
